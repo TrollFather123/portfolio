@@ -86,14 +86,14 @@ export const BannerWrap = styled(Box)`
       display: flex;
       align-items: center;
       justify-content: right;
-      @media (max-width:899px) {
+      @media (max-width: 899px) {
         justify-content: center;
       }
 
       .image_inner {
         position: relative;
         width: 500px;
-        overflow: hidden;
+        /* overflow: hidden; */
         line-height: 0;
         border-radius: 0 91px;
         figure {
@@ -116,27 +116,22 @@ export const BannerWrap = styled(Box)`
             object-fit: contain;
             height: 340px;
           }
-         
-          @media (max-width:479px) {
-           
+
+          @media (max-width: 479px) {
             height: 320px;
           }
-          @media (max-width:429px) {
-           
+          @media (max-width: 429px) {
             height: 280px;
           }
-          @media (max-width:389px) {
-           
-           height: 260px;
-         }
-         @media (max-width:369px) {
-           
-           height: 240px;
-         }
-         @media (max-width:339px) {
-           
-           height: 220px;
-         }
+          @media (max-width: 389px) {
+            height: 260px;
+          }
+          @media (max-width: 369px) {
+            height: 240px;
+          }
+          @media (max-width: 339px) {
+            height: 220px;
+          }
         }
       }
     }

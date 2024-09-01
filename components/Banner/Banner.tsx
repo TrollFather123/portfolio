@@ -43,7 +43,7 @@ const Banner = () => {
                   </figure>
                   <Image
                     width={402}
-                    height={382}
+                    height={400}
                     alt="Man"
                     src={assest.Man}
                     className="Man"

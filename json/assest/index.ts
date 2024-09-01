@@ -4,7 +4,7 @@ export default {
   logo_img: "/assets/images/logo_img.png",
   story_img: "/assets/images/story_img.png",
   backBanner: "/assets/images/backBanner.png",
-  Man: "/assets/images/self_img.jpg",
+  Man: "/assets/images/self_img.png",
   project1: "/assets/images/project1.png",
   project2: "/assets/images/project2.png",
   project3: "/assets/images/project3.png",

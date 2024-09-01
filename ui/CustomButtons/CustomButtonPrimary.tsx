@@ -15,16 +15,16 @@ const CustomButtonWrapper = styled(Button)`
   font-size: 15px;
   font-weight: 600;
   max-height: 53px;
-box-shadow: 0px 25px 37.3px -8px rgba(69, 121, 255, 0.2);
-
-
-  svg{
+  box-shadow: 0px 25px 37.3px -8px rgba(69, 121, 255, 0.2);
+  transition: all 0.5s ease;
+  svg {
     margin-left: auto;
+    transition: all 0.5s ease;
   }
-  :hover{
+  :hover {
     font-size: 15px;
     font-weight: 800;
-    svg{
+    svg {
       transform: scale(1.35);
     }
   }
@@ -49,18 +49,7 @@ box-shadow: 0px 25px 37.3px -8px rgba(69, 121, 255, 0.2);
       color: ${primaryColors?.black};
     }
   }
-  p {
-    font-size: 16px;
-    font-weight: 500;
-    color: ${primaryColors?.white};
-  }
-  span {
-    div {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
+
   /* img {
     width: 24px;
   } */
