@@ -32,17 +32,17 @@ export const skillList = [
   {
     icon: <Skill2 />,
     name: "Frameworks/Libraries:",
-    progress: "React.js, Angular, Vue.js"
+    progress: "React.js, Next.js, Node.js , Express.js , Mongodb"
   },
   {
     icon: <Skill3 />,
     name: "Version Control:",
-    progress: "Git, GitHub"
+    progress: "Git, GitHub, Gitlab , Vercel"
   },
   {
     icon: <Skill4 />,
     name: "Design Tools:",
-    progress: "Figma, Adobe XD"
+    progress: "Figma"
   },
   {
     icon: <Skill5 />,
@@ -55,11 +55,11 @@ export const skillList = [
     progress: "RESTful APIs, Webpack, Sass/Les"
   }
 ];
-export const LitItem= [
+export const LitItem = [
   "Spearheaded website development initiative, converting mockups into fully functional web presence using HTML, JavaScript, AJAX, and JSON.",
   "Crafted SEO strategy for optimized search engine rankings across browsers,ensuring an intuitive interface for enhanced user experience.",
   "Collaborated with backend engineers tostreamline processes, optimizing APIcalls and achieving significant efficiencygains.",
   "Maintained disciplined version controlwith Git, ensuring seamlesscollaboration and transparency.",
   "Led development of responsive web UIfor ecommerce transformation,leveraging ReactJS and Next.JS.",
   "Contributed to creation of 60+ singlepage applications using React Reduxarchitecture and ES6 standards,focusing on functionality and scalability."
-]
+];

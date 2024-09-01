@@ -19,7 +19,7 @@ const Banner = () => {
               <Box className="lft_box">
                 <Typography variant="h1">
                   I am Abhisek,
-                  <br />A <span>Frontend developer</span>
+                  <br />A <span>Fullstack developer</span>
                 </Typography>
                 <CustomButtonPrimary
                   variant="contained"
