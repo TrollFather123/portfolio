@@ -37,7 +37,7 @@ export const WrapperStyle = styled(Box)`
   h6 {
     padding: 0;
     margin: 0;
-    color: var(--color07171E);
+    /* color: var(--color07171E); */
   }
   h1 {
     text-transform: capitalize;
@@ -159,7 +159,16 @@ export const WrapperStyle = styled(Box)`
   }
 
   .cmn_gap {
-    padding: 50px 0;
+    padding: 45px 0;
+    @media (max-width:1199px) {
+      padding: 35px 0;
+    }
+    @media (max-width:899px) {
+      padding: 30px 0;
+    }
+    @media (max-width:599px) {
+      padding: 25px 0;
+    }
   }
 
   .cmn_gap_top {

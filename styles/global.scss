@@ -16,7 +16,7 @@
 body {
   font-size: 16px;
   line-height: 1.5;
-  color: var(--bodyFontColor);
+  // color: var(--bodyFontColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -24,8 +24,8 @@ body {
   margin: 0;
   padding: 0;
   // font-family: Arial, Helvetica, sans-serif;
-  font-family: "Roboto";
-  background-color: var(--white) !important;
+  // font-family: "Roboto";
+  background-color: #11111E !important;
   overflow-x: hidden;
 }
 #__next {

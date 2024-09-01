@@ -1,16 +1,19 @@
-import assest from "@/json/assest";
+/* eslint-disable react/jsx-no-useless-fragment */
+import { primaryColors } from "@/themes/_muiPalette";
+import ButtonIcon from "@/ui/Icons/ButtonIcon";
+import MailIcon from "@/ui/Icons/MailIcon";
+import PhoneIcon from "@/ui/Icons/PhoneIcon";
 import styled from "@emotion/styled";
-import Image from "next/image";
-import React from "react";
 import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import Link from "next/link";
-import { List, ListItem } from "@mui/material";
-import path from "path";
-import { useRouter } from "next/router";
 
 const FooterWrap = styled(Box)`
-  padding: 45px 0;
   .ftr-list {
     display: flex;
     align-items: center;
@@ -41,7 +44,7 @@ const FooterWrap = styled(Box)`
         &:hover {
           color: var(--black);
         }
-        &.active{
+        &.active {
           color: var(--black);
         }
       }
@@ -68,7 +71,7 @@ const FooterWrap = styled(Box)`
     li {
       width: auto;
       margin-right: 20px;
-      
+
       &:last-child {
         margin-right: 0;
       }
@@ -100,84 +103,135 @@ const FooterWrap = styled(Box)`
   .ftr-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 36px 20px 76px;
+    background: ${primaryColors.secondary};
+    border-radius: 50px 50px 0px 0px;
     @media (max-width: 1199px) {
-      display: block;
-      text-align: center;
+      padding: 28px 20px 60px;
+    }
+    @media (max-width: 899px) {
+      padding: 25px 20px 50px;
+      border-radius: 30px 30px 0px 0px;
+    }
+    @media (max-width: 599px) {
+      padding: 25px 20px 35px;
+      border-radius: 20px 20px 0px 0px;
+    }
+    button {
+      margin-left: 30px;
+      padding: 0;
+      min-width: auto;
+      height: auto;
+      :hover {
+        background: transparent;
+        transform: scale(1.05);
+      }
+    }
+    h2 {
+      color: ${primaryColors.black};
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+  }
+  ul {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @media (max-width: 899px) {
+      margin-top: 40px;
+    }
+    @media (max-width: 599px) {
+      margin-top: 25px;
+    }
+    @media (max-width: 599px) {
+      margin-top: 18px;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      :hover {
+        svg {
+          path {
+            fill: ${primaryColors.primary};
+          }
+        }
+        a {
+          color: ${primaryColors.primary};
+        }
+      }
+      svg {
+        cursor: pointer;
+        @media (max-width: 599px) {
+          width: 25px;
+        }
+        @media (max-width: 479px) {
+          width: 20px;
+        }
+      }
+      a {
+        color: #11111e;
+        font-size: 30px;
+        font-weight: 500;
+        margin-left: 15px;
+        @media (max-width: 1199px) {
+          font-size: 26px;
+        }
+        @media (max-width: 899px) {
+          font-size: 24px;
+        }
+        @media (max-width: 599px) {
+          font-size: 20px;
+        }
+        @media (max-width: 479px) {
+          font-size: 16px;
+        }
+        /* :hover{
+          color:${primaryColors.primary};
+        } */
+      }
+      :not(:last-child) {
+        margin-bottom: 20px;
+        @media (max-width: 599px) {
+          margin-bottom: 12px;
+        }
+        @media (max-width: 479px) {
+          margin-bottom: 8px;
+        }
+      }
     }
   }
 `;
 
-const navItems = [
-  {
-    name: "home",
-    route: "/",
-  },
-  {
-    name: "About",
-    route: "/about",
-  },
-  {
-    name: "Products",
-    route: "/products",
-  },
-  {
-    name: "Package",
-    route: "/package",
-  },
-  {
-    name: "Contact",
-    route: "/contact",
-  },
-];
-
-
-
 const Footer = () => {
-  const navItems = [
-    {
-      name: "home",
-      route: "/",
-    },
-    {
-      name: "About",
-      route: "/about",
-    },
-    {
-      name: "Products",
-      route: "/products",
-    },
-    {
-      name: "Package",
-      route: "/package",
-    },
-    {
-      name: "Contact",
-      route: "/contact",
-    },
-  ];
-  const router = useRouter();
   return (
     <>
       <FooterWrap>
         <Container fixed>
           <Box className="ftr-wrapper">
-            <Link href="/" className="ftr-logo">
-              <Image src={assest.logo_img} alt="" width={210} height={34} />
-            </Link>
-
-            <List className="ftr-list">
-              {navItems.map((item: any, index: number) => (
-                <ListItem disablePadding>
-                  <Link href={item?.route} key={item.name} className={router.pathname === item.route ? "active" : ""}>
-                    {item?.name}
-                  </Link>
-                </ListItem>
-              ))}
+            <Stack direction="row" alignItems="center">
+              <Typography variant="h2">Contact me</Typography>
+              <IconButton>
+                <ButtonIcon />
+              </IconButton>
+            </Stack>
+            <List>
+              <ListItem disablePadding>
+                <PhoneIcon />
+                <Link href="tel:+7003881553">+7003881553</Link>
+              </ListItem>
+              <ListItem disablePadding>
+                <MailIcon />
+                <Link href="mailto:avishek.rakshit98@gmail.com">
+                  avishek.rakshit98@gmail.com
+                </Link>
+              </ListItem>
             </List>
- 
-            <Box className="copy">
-              © 2023 <Link href="/">Career Utility.</Link> All Rights Reserved.
-            </Box>
           </Box>
         </Container>
       </FooterWrap>

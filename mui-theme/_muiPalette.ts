@@ -4,11 +4,11 @@
 import { PaletteMode, PaletteOptions } from "@mui/material";
 
 export const primaryColors = {
-  primary: "#16A6DF",
-  primary1: "#C2A6F4",
+  primary: "#F24E1E",
+  primary1: "#11111E",
 
   primary_600: "#5871D0",
-  secondary: "#FF8EB2",
+  secondary: "#25EBB0",
   secondaryBorder: "#F380A5",
   info: "#7CD1D2",
   infoBorder: "#67C1C2",

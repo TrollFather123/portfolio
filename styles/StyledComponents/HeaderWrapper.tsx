@@ -1,43 +1,52 @@
 import { primaryColors } from "@/themes/_muiPalette";
+import { spaceGrotesk } from "@/themes/_muiTheme";
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 
 export const HeaderWrap = styled(Box)`
-  background: ${primaryColors.white};
-  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.07);
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+
   .MuiToolbar-root {
     min-height: auto;
     padding: 0;
   }
   .hdr_rgt {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    button {
-      padding: 11px 42px;
-      min-width: auto;
-    }
+    margin-left: auto;
+
     .MuiBadge-badge {
       right: 4px;
       top: 5px;
       min-width: 10px;
       height: 10px;
     }
-    .cart_icon{
+    .cart_icon {
       margin-right: 18px;
     }
   }
 
   .headerContainer {
     background-color: transparent !important;
-    padding: 20px 0;
+    padding: 40px 0;
     transition: all 0.4s;
+    @media (max-width: 479px) {
+      padding: 25px 0;
+    }
   }
 
   .headerLogo {
-    width: 120px;
-    display: inline-block;
-    transition: all 0.4s;
+    font-size: 32px;
+    font-family: ${spaceGrotesk.style.fontFamily};
+    font-weight: 700;
+    color: ${primaryColors.white};
+    @media (max-width: 899px) {
+      font-size: 28px;
+    }
+    @media (max-width: 599px) {
+      font-size: 24px;
+    }
   }
   .navbar {
     margin-left: auto;
@@ -58,6 +67,12 @@ export const HeaderWrap = styled(Box)`
       &.active {
         color: ${primaryColors.primary};
       }
+    }
+  }
+  button{
+    @media (max-width:599px) {
+      min-width: 120px;
+      padding: 6px 18px;
     }
   }
 `;

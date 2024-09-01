@@ -1,9 +1,14 @@
+/* eslint-disable import/no-duplicates */
+/* eslint-disable consistent-return */
+/* eslint-disable import/order */
 /* eslint-disable no-unused-vars */
 /* eslint-disable unused-imports/no-unused-vars */
 /* eslint-disable mui-path-imports/mui-path-imports */
 import { PaletteMode } from "@mui/material";
 import type { ThemeOptions } from "@mui/material/styles";
 import { pallete, primaryColors } from "./_muiPalette";
+import { Space_Grotesk } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 
 /**
  * The function `MuiThemeOptions` returns a configuration object for the Material-UI theme based on the
@@ -13,59 +18,97 @@ import { pallete, primaryColors } from "./_muiPalette";
  * or "dark".
  * @returns The function `MuiThemeOptions` returns a `ThemeOptions` object.
  */
+export const spaceGrotesk = Space_Grotesk({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-openSans"
+});
+export const plusJakarta = Plus_Jakarta_Sans({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-openSans"
+});
 export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
   return {
     palette: pallete(mode),
     typography: {
-      fontFamily: ["Roboto"].join(","),
+      fontFamily: spaceGrotesk.style.fontFamily,
       fontSize: 16,
       h1: {
-        fontSize: "67px",
+        fontSize: "80px",
         lineHeight: "1.1em",
         fontWeight: "700",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "22px",
+        color: "#ffffff",
+        fontFamily: spaceGrotesk.style.fontFamily,
+        "@media(max-width:1199px)": {
+          fontSize: "65px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:899px)": {
+          fontSize: "50px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:599px)": {
+          fontSize: "35px",
           lineHeight: "1.1em"
         }
       },
       h2: {
-        fontSize: "106px",
+        fontSize: "50px",
         lineHeight: "1.1em",
-        fontWeight: "400",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "22px",
-          lineHeight: "26px"
+        fontWeight: "500",
+        color: "#ffffff",
+        fontFamily: spaceGrotesk.style.fontFamily,
+        "@media(max-width:1199px)": {
+          fontSize: "40px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:899px)": {
+          fontSize: "30px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:599px)": {
+          fontSize: "25px",
+          lineHeight: "1.1em"
         }
       },
       h3: {
-        fontSize: "20px",
+        fontSize: "35px",
         lineHeight: "1.1em",
-        fontWeight: "700",
-        fontFamily: "Cinzel",
-        "@media(max-width:991px)": {
-          fontSize: "18px",
+        fontWeight: "500",
+        fontFamily: spaceGrotesk.style.fontFamily,
+        "@media(max-width:1199px)": {
+          fontSize: "30px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:899px)": {
+          fontSize: "26px",
+          lineHeight: "1.1em"
+        },
+        "@media(max-width:599px)": {
+          fontSize: "22px",
           lineHeight: "1.1em"
         }
       },
       h4: {
-        fontSize: "18px",
+        fontSize: "23px",
         lineHeight: "1.3",
-        fontWeight: "500",
-        fontFamily: "Cinzel",
+        fontWeight: "400",
+        fontFamily: spaceGrotesk.style.fontFamily,
         "@media(max-width:991px)": {
-          fontSize: "16px",
+          fontSize: "18px",
           lineHeight: "1.3"
         }
       },
       h5: {
-        fontSize: "15px",
+        fontSize: "20px",
         lineHeight: "1.4",
         fontWeight: "500",
-        fontFamily: "Cinzel",
+        fontFamily: spaceGrotesk.style.fontFamily,
         "@media(max-width:991px)": {
-          fontSize: "12px",
+          fontSize: "18px",
           lineHeight: "1.4"
         }
       },
@@ -73,7 +116,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
         fontSize: "12px",
         lineHeight: "1.5",
         fontWeight: "500",
-        fontFamily: "Cinzel",
+        fontFamily: spaceGrotesk.style.fontFamily,
         "@media(max-width:991px)": {
           fontSize: "12px",
           lineHeight: "1.5"
@@ -82,7 +125,7 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
       body1: {
         fontSize: "16px",
         lineHeight: "1.5em",
-        color: "#8F98A8"
+        color: "#ffffff"
       },
       body2: {
         fontSize: "12px",
@@ -260,11 +303,11 @@ export const MuiThemeOptions = (mode: PaletteMode): ThemeOptions => {
             ) {
               return {
                 // backgroundColor: primaryColors?.primary,
-                background: ` linear-gradient(279deg, ${primaryColors?.primary1} -7.77%, ${primaryColors?.primary} 109.39%);`,
-                borderRadius: "50px",
+                background: `linear-gradient(103.47deg, #4579FF -12.54%, #000572 119.77%);`,
+                borderRadius: "10px",
 
                 "&:hover": {
-                  background: ` linear-gradient(279deg, ${primaryColors?.primary} -7.77%, ${primaryColors?.primary1} 109.39%);`,
+                  background: ` linear-gradient(103.47deg, #000572 -12.54%, #4579FF 119.77%);`,
                   color: primaryColors?.white
                 }
               };
