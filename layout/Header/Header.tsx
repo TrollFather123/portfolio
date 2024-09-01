@@ -1,4 +1,4 @@
-"use client";
+/* eslint-disable no-console */
 
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -13,39 +13,46 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { useAppSelector } from "@/hooks/useAppSelector";
+
+import { useAppDispatch } from "@/hooks/redux/useAppDispatch";
+import { useAppSelector } from "@/hooks/redux/useAppSelector";
+import assest from "@/json/assest";
 import { logout } from "@/reduxtoolkit/slices/userSlice";
-import styles from "@/styles/layout/header.module.scss";
+import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
+
+import { HeaderWrap } from "@/styles/StyledComponents/HeaderWrapper";
+import CartIcon from "@/ui/Icons/cartIcon";
+import Badge from "@mui/material/Badge";
+import { Container } from "@mui/system";
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from 'next/navigation';
-import CustomButton from "@/ui/Buttons/CustomButton";
+import { useRouter } from "next/router";
 
-
-
-
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
+// const CustomButton = dynamic(() => import("@/ui/Buttons/CustomButton"));
 
 const drawerWidth = 240;
-const navItems = [
-  {
-    name: "home",
-    route: "/"
-  },
-  {
-    name: "Login",
-    route: "/login"
-  }
-];
 
-export default function Header(props: Props) {
-  const { window } = props;
+export default function Header() {
+  const navItems = [
+    {
+      name: "Clinical studies",
+      route: "javascript:void(0)"
+    },
+    {
+      name: "The science",
+      route: "javascript:void(0)"
+    },
+    {
+      name: "Shop",
+      route: "javascript:void(0)"
+    },
+    {
+      name: "Contact us",
+      route: "javascript:void(0)"
+    }
+  ];
+
+  // const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const { userData, isLoggedIn } = useAppSelector((state) => state.userSlice);
   const dispatch = useAppDispatch();
@@ -80,60 +87,104 @@ export default function Header(props: Props) {
     </Box>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  // const container =
+  //   window !== undefined ? () => window().document.body : undefined;
+
+  //for adding class to header while scroll
+  // const [scroll, setScroll] = React.useState(false);
+
+  // const detectScroll = React.useCallback(() => {
+  //   setScroll(window.scrollY > 100);
+  // }, []);
+
+  // React.useEffect(() => {
+  //   window.addEventListener("scroll", detectScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", detectScroll);
+  //   };
+  // }, []);
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <HeaderWrap sx={{ display: "flex" }} className="main_head">
       <AppBar
         component="nav"
         position="static"
         elevation={0}
-        className={styles.headerContainer}
+        className="headerContainer"
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
-          {isLoggedIn ? (
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              <CustomButton onClick={handleLogout} type="button" variant="text">
-                <span>Logout</span>
-              </CustomButton>
+        <Container fixed>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link href="/" className="headerLogo">
+              <Image src={assest.logo_img} width={250} height={38} alt="Logo" />
+            </Link>
+            {isLoggedIn ? (
+              <Box
+                sx={{ display: { xs: "none", sm: "block" } }}
+                className="navbar"
+              >
+                <CustomButtonPrimary
+                  onClick={handleLogout}
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                >
+                  <span>Logout</span>
+                </CustomButtonPrimary>
 
-              <CustomButton type="button" variant="text">
-                <span>{userData?.email}</span>
-              </CustomButton>
+                <CustomButtonPrimary
+                  type="button"
+                  variant="contained"
+                  color="primary"
+                >
+                  <span>{userData?.email}</span>
+                </CustomButtonPrimary>
+              </Box>
+            ) : (
+              <Box
+                sx={{ display: { xs: "none", sm: "block" } }}
+                className="navbar"
+              >
+                {navItems.map((item) => (
+                  <Link
+                    href={item?.route}
+                    key={item?.route}
+                    className={router.pathname === item.route ? "active" : ""}
+                  >
+                    {/* <CustomButton type="button" variant="text"> */}
+                    {item?.name}
+                    {/* </CustomButton> */}
+                  </Link>
+                ))}
+              </Box>
+            )}
+            <Box className="hdr_rgt">
+              <Box className="cart_icon">
+                <Badge color="primary" variant="dot">
+                  <CartIcon />
+                </Badge>
+              </Box>
+              <CustomButtonPrimary
+                type="button"
+                variant="contained"
+                color="primary"
+              >
+                <Typography>Login</Typography>
+              </CustomButtonPrimary>
             </Box>
-          ) : (
-            <Box sx={{ display: { xs: "none", sm: "block" } }}>
-              {navItems.map((item) => (
-                <Link href={item?.route} key={item.name}>
-                  <CustomButton type="button" variant="text">
-                    <span>{item?.name}</span>
-                  </CustomButton>
-                </Link>
-              ))}
-            </Box>
-          )}
-        </Toolbar>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Box component="nav">
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -141,7 +192,7 @@ export default function Header(props: Props) {
             keepMounted: true // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
+            display: { xs: "block", lg: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth
@@ -152,6 +203,6 @@ export default function Header(props: Props) {
         </Drawer>
       </Box>
       <Toolbar />
-    </Box>
+    </HeaderWrap>
   );
 }

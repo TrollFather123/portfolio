@@ -1,5 +1,5 @@
 import { userData } from "@/types/common.type";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { destroyCookie } from "nookies";
 import { userSliceData } from "../interfaces/interfaces";
 
@@ -7,21 +7,6 @@ const initialState: userSliceData = {
   isLoggedIn: false,
   userData: null
 };
-
-export const loginUser = createAsyncThunk(
-  "/loginUser",
-  async (data, { rejectWithValue }) => {
-    try {
-      // const res = await axiosInstance.post(
-      //   "appointment/terminal-appointments-list",
-      //   data
-      // );
-      // return res.data;
-    } catch (error) {
-      return rejectWithValue([]);
-    }
-  }
-);
 
 export const userSlice = createSlice({
   name: "userSlice",
@@ -40,8 +25,13 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.isLoggedIn = false;
       state.userData = null;
-      destroyCookie(null, "token");
-      destroyCookie(null, "user");
+      // cookie.remove("privy_token");
+      // cookie.remove("user");
+
+      destroyCookie(null, "user", { path: "/" });
+      destroyCookie(null, process.env.NEXT_APP_TOKEN_NAME!, { path: "/" });
+
+      window.location.href = "/login";
     }
   },
   extraReducers: {}
