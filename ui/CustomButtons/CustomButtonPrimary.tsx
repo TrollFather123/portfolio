@@ -4,12 +4,9 @@ import styled from "@emotion/styled";
 import Button, { ButtonProps } from "@mui/material/Button";
 
 const CustomButtonWrapper = styled(Button)`
-  display: flex;
   padding: 12.5px 22px;
   border-radius: 10px;
   min-width: 157px;
-  justify-content: space-between;
-  align-items: center;
   color: ${primaryColors.white};
   font-family: ${plusJakarta.style.fontFamily};
   font-size: 15px;

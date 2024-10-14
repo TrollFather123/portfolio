@@ -6,7 +6,6 @@ import CustomButtonPrimary from "@/ui/CustomButtons/CustomButtonPrimary";
 import UpArrIcon from "@/ui/Icons/UpArrIcon";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
 
 const Banner = () => {
   return (
@@ -25,6 +24,7 @@ const Banner = () => {
                   variant="contained"
                   color="primary"
                   endIcon={<UpArrIcon />}
+                  href="mailto:avishek.rakshit98@gmail.com"
                 >
                   Get in touch
                 </CustomButtonPrimary>

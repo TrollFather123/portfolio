@@ -4,6 +4,7 @@ import { Box, styled } from "@mui/material";
 
 export const BannerWrap = styled(Box)`
   position: relative;
+
   ::before {
     content: "";
     position: absolute;

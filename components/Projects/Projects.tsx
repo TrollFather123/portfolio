@@ -2,8 +2,7 @@
 /* eslint-disable mui-path-imports/mui-path-imports */
 import { cardMock } from "@/json/mock/cardMock";
 import { ProjectsWrap } from "@/styles/StyledComponents/ProjectsWrap";
-import RgtArrwoIcon from "@/ui/Icons/RgtArrwoIcon";
-import { Box, Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import ProjectCard from "../ProjectCard/ProjectCard";
 
@@ -13,21 +12,25 @@ const Projects = () => {
       <Container fixed>
         <Box className="mainWrap">
           <Typography variant="h2">Portfolio & Project</Typography>
-          <Stack direction="row" alignItems="center" justifyContent="right">
+          {/* <Stack direction="row" alignItems="center" justifyContent="right">
             <Button endIcon={<RgtArrwoIcon />} className="btn">See all my portfolio</Button>
-          </Stack>
+          </Stack> */}
           <Box className="project_box">
-          <Grid container spacing={{md:5, sm:3, xs:4 }} justifyContent="center">
-            {cardMock.map((data, index) => (
-              <Grid item xs={12} md={4} sm={6} key={index} >
-                <ProjectCard
-                  image={data.img}
-                  title={data.head}
-                  sub={data.sub}
-                />
-              </Grid>
-            ))}
-          </Grid>
+            <Grid
+              container
+              spacing={{ md: 5, sm: 3, xs: 4 }}
+              justifyContent="center"
+            >
+              {cardMock.map((data, index) => (
+                <Grid item xs={12} md={4} sm={6} key={index}>
+                  <ProjectCard
+                    image={data.img}
+                    title={data.head}
+                    sub={data.sub}
+                  />
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         </Box>
       </Container>
