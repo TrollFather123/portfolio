@@ -11,30 +11,43 @@ import Image from "next/image";
 const Experience = () => {
   return (
     <ExperienceWrap className="cmn_gap">
-        <Image width={233} height={233} alt="grid" src={assest.grid} className="grid"/>
+      <Image
+        width={233}
+        height={233}
+        alt="grid"
+        src={assest.grid}
+        className="grid"
+      />
       <Container fixed>
         <Typography variant="h2">Experience</Typography>
-        <Grid container spacing={{lg:10, md:8,  sm:6 ,xs:2}} justifyContent="center">
-          <Grid item xs={12} md={7} >
-            <Typography variant="h4">
+        <Grid
+          container
+          spacing={{ lg: 10, md: 8, sm: 6, xs: 2 }}
+          justifyContent="center"
+        >
+          <Grid item xs={12} md={7}>
+            {/* <Typography variant="h4">
               Lorem ipsum dolor sit amet consectetur .
-            </Typography>
+            </Typography> */}
             <Typography variant="h5">
               React and Next JS Developer | 2021-Present
             </Typography>
             <List>
               {LitItem.map((item) => (
                 <ListItem disablePadding>
-                  <Typography variant="body1">
-                    {item}
-                  </Typography>
+                  <Typography variant="body1">{item}</Typography>
                 </ListItem>
               ))}
             </List>
           </Grid>
           <Grid item xs={12} md={5}>
             <figure>
-                <Image width={555} height={593} alt="laptop" src={assest.laptop} />
+              <Image
+                width={555}
+                height={593}
+                alt="laptop"
+                src={assest.laptop}
+              />
             </figure>
           </Grid>
         </Grid>
